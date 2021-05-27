@@ -73,15 +73,14 @@ class LoginControl extends React.Component {
         }
       })
       .then(res => res.json())
-      .then(function (res) {
-        console.log(res);
+      .then((res) => {
 
         if (res.token !== undefined) {
-          console.log("ACERTOU");
-        } else { console.log("ERROU"); }
+          console.log(res.token);
+          this.setState({ isLoggedIn: true });
+        } else { alert("Login não autorizado, verifique credenciais"); }
 
       });
-    this.setState({ isLoggedIn: true });
   }
 
   handleLogoutClick() {
